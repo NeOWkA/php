@@ -1,4 +1,5 @@
 <?php
+require "db.php";
 include "classSimpleImage.php";
 
 define("ROOT", $_SERVER['DOCUMENT_ROOT']);
@@ -10,7 +11,7 @@ function getImages($path)
     return array_splice(scandir($path), 2);
 }
 
-$images = getImages(IMG_BIG);
+$result = mysqli_query($db, "SELECT id, filename FROM images");
 
 $messages = [
     'Image uploaded' => 'ok',
@@ -20,7 +21,6 @@ $messages = [
 if (!empty($_FILES)) {
     $path_big = IMG_BIG . $_FILES['myFile']['name'];
     $path_small = IMG_SMALL . $_FILES['myFile']['name'];
-
 
     if (move_uploaded_file($_FILES['myFile']['tmp_name'], $path_big)) {
         $message = "ok";
@@ -35,7 +35,8 @@ if (!empty($_FILES)) {
     die();
 }
 $images = getImages(IMG_BIG);
-$message = array_search($_GET['message'], $messages);
-var_dump($message);
-
-include "mygallery.php";
+if (isset($_GET['message'])) {
+    $message = array_search($_GET['message'], $messages);
+} else {
+    $message = "";
+}

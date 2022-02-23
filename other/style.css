@@ -1,0 +1,61 @@
+body {
+	background: black url('../img/body2.jpg') no-repeat;
+	color: #444;
+	font: normal 1.2em Verdana,Arial,sans-serif;
+	height: 100%;
+	padding-bottom: 1px;
+	padding-top: 64px;
+	background-size: cover;
+}
+.gallery img{
+	margin:5px;
+	border:3px solid #bf4789;
+}
+a.photo:hover img{
+	border:3px solid #034F80;
+}
+#main {
+	width:858px;
+	margin:0 auto;
+	background: lightblue;
+
+	color: darkslategray;
+}
+.post_title h2 {
+	font: normal 2em "Times New Roman",sans-serif;
+	margin: 0;
+	padding: 0;
+}
+.dlForm {
+	color: lightseagreen;
+	float: right;
+	width: 30%;
+}
+.message {
+	color: lightseagreen;
+	float: right;
+	width: 40%;
+	font: normal 2em "Times New Roman",sans-serif;
+	margin: 0;
+	padding: 0;
+}
+a:hover img{
+border:3px solid #034F80;
+animation: movement 10s infinite;
+-webkit-animation: movement 10s infinite;
+	}
+@keyframes movement {
+    0% {transform: rotate(90deg);}
+    25% {transform: rotate(180deg);}
+    50% {transform: rotate(270deg);}
+    75% {transform: rotate(360deg);}
+    100% {transform: rotate(0deg);}
+    }
+	@-webkit-keyframes movement {
+    0% {transform: rotate(0deg);}
+    25% {transform: rotate(10deg);}
+    50% {transform: rotate(0deg);}   
+    75% {transform: rotate(-10deg);}
+    100% {transform: rotate(0deg);}   
+    }
+

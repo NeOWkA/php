@@ -18,7 +18,7 @@ if (!empty($_FILES)) {
     } else {
         $message =   "error";
     }
-    header("Location: index.php?message=" . $message);
+    header("Location: 1.php?message=" . $message);
     die();
 }
 $message = $messages[$_GET['message']];
